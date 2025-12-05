@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lumière des Mots — Prototipo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#f59e0b; /* amber */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial; margin:0; background:linear-gradient(180deg,#071025 0%, #081226 60%); color:#e6eef8}
+    header{display:flex;align-items:center;justify-content:space-between;padding:22px;backdrop-filter: blur(6px)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ef4444);display:flex;align-items:center;justify-content:center;font-weight:800;color:#071025}
+    nav a{color:var(--muted);text-decoration:none;margin:0 10px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 48px}
+    .hero .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    h1{font-size:34px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+
+    .meta-grid{display:flex;gap:12px;margin-top:16px}
+    .badge{background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
+    .badge strong{color:var(--accent)}
+
+    /* Right column image */
+    .poster{border-radius:14px;overflow:hidden;position:relative}
+    .poster img{display:block;width:100%;height:100%;object-fit:cover}
+    .poster .overlay{position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(180deg, rgba(2,6,23,0) 0%, rgba(2,6,23,0.7) 100%)}
+    .poster .overlay a{display:inline-block;background:var(--accent);color:#071025;padding:8px 12px;border-radius:8px;font-weight:700;text-decoration:none}
+
+    main{padding:30px 48px;display:grid;grid-template-columns:1fr 360px;gap:28px}
+    section.card{background:var(--card);padding:20px;border-radius:12px}
+    .section-title{display:flex;align-items:center;gap:12px}
+    .num{background:linear-gradient(180deg,#0b1220,#0b1220);border:2px solid rgba(255,255,255,0.03);width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
+
+    .authors .author{display:flex;gap:12px;margin:14px 0;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .author .avatar{width:56px;height:56px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,#334155,#475569);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .author h4{margin:0 0 4px}
+    .author p{margin:0;color:var(--muted);font-size:14px}
+
+    .books ul{list-style:none;padding:0;margin:10px 0}
+    .books li{padding:12px;border-radius:10px;background:var(--glass);margin-bottom:10px}
+
+    aside.card{position:sticky;top:20px}
+    footer{padding:24px 48px;color:var(--muted);font-size:14px}
+
+    /* small screens */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      main{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">L</div>
+      <div>
+        <div style="font-weight:800">Lumière des Mots</div>
+        <div style="font-size:12px;color:var(--muted)">Festival Internacional - Prototipo</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#museo1">Museo (1)</a>
+      <a href="#festival2">Festival (2)</a>
+      <a href="#autores3">Autores (3)</a>
+      <a href="#libros4">Libros (4)</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="card">
+      <h1>Festival Lumière des Mots — Conexión entre literatura, cine y pensamiento</h1>
+      <p class="lead">Encuentros, presentaciones, proyecciones y charlas con autores nacionales e internacionales. Aquí encontrarás la información principal del Museo, el Festival, los Autores y los Libros.</p>
+
+      <div class="meta-grid">
+        <div class="badge"><span class="num">1</span> <span>Museo</span></div>
+        <div class="badge"><span class="num">2</span> <span>Festival</span></div>
+        <div class="badge"><span class="num">3</span> <span>Autores</span></div>
+        <div class="badge"><span class="num">4</span> <span>Libros</span></div>
+      </div>
+
+      <p style="margin-top:18px;color:var(--muted)">Este prototipo toma el contenido del diseño provisto por el cliente y lo convierte en una página web responsiva y accesible. Los enlaces y las palabras clave están conectadas a las secciones numeradas automáticamente (museo → 1, festival → 2, autores → 3, libros → 4).</p>
+
+    </div>
+
+    <div class="poster">
+      <!-- Imagen con link incrustado: 'Haga click para visualizar' -->
+      <a href="https://360stories.com/paris/place/louvre-museum" target="_blank" rel="noopener noreferrer">
+        <img src="https://images.unsplash.com/photo-1526779259210-89e1f356b3bf?auto=format&fit=crop&w=900&q=60" alt="Museo - Haga click para visualizar">
+        <div class="overlay"><a href="https://360stories.com/paris/place/louvre-museum" target="_blank" rel="noopener noreferrer">Haga click para visualizar</a></div>
+      </a>
+    </div>
+  </section>
+
+  <main>
+    <section id="museo1" class="card">
+      <div class="section-title"><div class="num">1</div><h2 style="margin:0">Sobre el museo</h2></div>
+      <p style="color:var(--muted);margin-top:12px">El Museo del Louvre es uno de los centros culturales más importantes del mundo. Su arquitectura combina historia y modernidad gracias a su icónica pirámide de cristal. En sus exteriores se celebran eventos internacionales de arte, literatura y cine que conectan a miles de visitantes anualmente.</p>
+      <p style="margin-top:12px">Enlace de referencia: <a href="https://360stories.com/paris/place/louvre-museum" target="_blank" style="color:var(--accent);">Visitar la ficha del Louvre</a></p>
+    </section>
+
+    <aside class="card">
+      <h3 style="margin-top:0">Información rápida</h3>
+      <p class="lead" style="margin:8px 0;color:var(--muted)">Usa la navegación superior o haz clic en cualquier palabra resaltada dentro del texto para saltar a la sección correspondiente.</p>
+      <div style="margin-top:12px">
+        <strong>Contacto:</strong>
+        <p style="margin:6px 0;color:var(--muted)">info@lumiere-des-mots.example</p>
+      </div>
+    </aside>
+
+    <section id="festival2" class="card">
+      <div class="section-title"><div class="num">2</div><h2 style="margin:0">Festival — Lumière des Mots</h2></div>
+      <p style="color:var(--muted);margin-top:12px">Lumière des Mots es un encuentro internacional donde autores, cineastas, pensadores y lectores exploran las ideas que transforman al mundo. El festival ofrece conferencias magistrales, presentaciones de libros, ferias, proyecciones y talleres.</p>
+
+      <div style="margin-top:12px">
+        <ul style="color:var(--muted)">
+          <li>Conferencias magistrales</li>
+          <li>Presentaciones de libros</li>
+          <li>Feria internacional del libro</li>
+          <li>Proyecciones cinematográficas</li>
+          <li>Conversatorios y firmas</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="autores3" class="card authors" style="grid-column:1/span1">
+      <div class="section-title"><div class="num">3</div><h2 style="margin:0">Autores invitados</h2></div>
+      <p style="color:var(--muted);margin-top:12px">Esta sección introduce a los creadores que darán vida al festival: autores nacionales e internacionales que compartirán su visión, trayectoria y obra.</p>
+
+      <div class="author">
+        <div class="avatar">MD</div>
+        <div>
+          <h4>María Dueñas <small style="color:var(--muted);font-weight:600">(España)</small></h4>
+          <p>Libro destacado: «El tiempo entre costuras». Narrativa histórica y sensibilidad cultural.</p>
+        </div>
+      </div>
+
+      <div class="author">
+        <div class="avatar">HM</div>
+        <div>
+          <h4>Haruki Murakami <small style="color:var(--muted);font-weight:600">(Japón)</small></h4>
+          <p>Libro destacado: «Tokio Blues». Identidad, soledad y elementos surrealistas.</p>
+        </div>
+      </div>
+
+      <div class="author">
+        <div class="avatar">CA</div>
+        <div>
+          <h4>Chimamanda Ngozi Adichie <small style="color:var(--muted);font-weight:600">(Nigeria)</small></h4>
+          <p>Libro destacado: «Americanah». Migración, raza y feminismo.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="libros4" class="card books">
+      <div class="section-title"><div class="num">4</div><h2 style="margin:0">Libros destacados</h2></div>
+      <p style="color:var(--muted);margin-top:12px">Una mirada a las obras que formarán el corazón literario del festival: novedades editoriales, títulos premiados y obras recomendadas.</p>
+
+      <ul>
+        <li><strong>Ciudad Transparente</strong> — ficción sobre identidad digital</li>
+        <li><strong>Metamorfosis Digital</strong> — ensayo sobre redes y cultura</li>
+        <li><strong>Utopías del Asfalto</strong> — crónica urbana</li>
+        <li><strong>Robótica Emocional</strong> — tecnología y emociones</li>
+        <li><strong>La Ciencia del Imaginario</strong> — creatividad aplicada</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div>&copy; 2025 Lumière des Mots — Prototipo</div>
+      <div style="color:var(--muted)">Diseño y contenido basado en el prototipo proporcionado.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Script para enlazar palabras clave dentro del documento a sus secciones numeradas.
+    (function(){
+      const map = {
+        'museo': '#museo1',
+        'festival': '#festival2',
+        'autores': '#autores3',
+        'libros': '#libros4'
+      };
+      // Reemplazar en todo el main el texto exacto (palabras en minúsculas) por enlaces.
+      const container = document.body;
+      function walk(node){
+        if(node.nodeType===3){ // text node
+          let txt = node.nodeValue;
+          const lowered = txt.toLowerCase();
+          let changed = false;
+          Object.keys(map).forEach(word=>{
+            const re = new RegExp('\\b'+word+'\\b','gi');
+            if(re.test(txt)){
+              changed = true;
+              txt = txt.replace(re, `<a href="${map[word]}" class="inline-link">${word} <span style=\"font-weight:800;color:var(--accent)\">(${{'museo':1,'festival':2,'autores':3,'libros':4}[word]})</span></a>`);
+            }
+          });
+          if(changed){
+            const span = document.createElement('span');
+            span.innerHTML = txt;
+            node.parentNode.replaceChild(span,node);
+          }
+        } else if(node.nodeType===1 && node.childNodes && !['A','SCRIPT','STYLE'].includes(node.tagName)){
+          for(let i=0;i<node.childNodes.length;i++) walk(node.childNodes[i]);
+        }
+      }
+      walk(container);
+      // small style for inline links
+      const s = document.createElement('style');
+      s.innerHTML = `.inline-link{color:var(--muted);text-decoration:none;font-weight:700} .inline-link:hover{color:var(--accent)}`;
+      document.head.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
